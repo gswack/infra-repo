@@ -1,0 +1,11 @@
+volumeMounts:
+  - name: mongo-storage
+    mountPath: /data/db
+
+volumes:
+  - name: mongo-storage
+    persistentVolumeClaim:
+      claimName: mongo-pvc
+
+spec:
+  replicas: 3
