@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/gswack/infra-repo
     targetRevision: main
-    path: kubernetes
+    path: kubernetes/frontend
   destination:
     server: https://kubernetes.default.svc
     namespace: hotel-frontend
