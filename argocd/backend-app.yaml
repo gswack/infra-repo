@@ -16,7 +16,7 @@ spec:
 
     targetRevision: main
 
-    path: kubernetes/backend
+    path: kubernetes/volumes/k8s/backend
 
 
   destination:
