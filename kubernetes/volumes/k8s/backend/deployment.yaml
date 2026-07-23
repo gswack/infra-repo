@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: gswack/hotel-backend:latest
+          image: host.docker.internal:8082/backend:initial
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
