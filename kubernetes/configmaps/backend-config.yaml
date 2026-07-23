@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  namespace: hotel-backend
+
+data:
+  DB_HOST: postgres
+  DB_NAME: hotels
