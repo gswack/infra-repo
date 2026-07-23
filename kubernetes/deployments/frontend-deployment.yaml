@@ -2,22 +2,48 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
-  namespace: frontend
+  namespace: hotel-frontend
+  labels:
+    app: frontend
+    tier: frontend
 spec:
-  replicas: 4
+  replicas: 5
   selector:
     matchLabels:
       app: frontend
+      tier: frontend
   template:
     metadata:
       labels:
         app: frontend
+        tier: frontend
     spec:
       containers:
         - name: frontend
-          image: your-frontend-image:latest
+          image: gswack/hotel-frontend:latest
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
+              name: http
           envFrom:
             - configMapRef:
                 name: frontend-config
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 256Mi
