@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mongo-config
+  namespace: database
+data:
+  MONGO_INITDB_DATABASE: hotelapp

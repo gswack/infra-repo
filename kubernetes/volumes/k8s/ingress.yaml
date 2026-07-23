@@ -1,0 +1,41 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hotel-frontend
+  namespace: hotel-frontend
+  labels:
+    app.kubernetes.io/part-of: lh-practice
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: hotel.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend
+                port:
+                  number: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hotel-backend
+  namespace: hotel-backend
+  labels:
+    app.kubernetes.io/part-of: lh-practice
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: api.hotel.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: backend
+                port:
+                  number: 3000
