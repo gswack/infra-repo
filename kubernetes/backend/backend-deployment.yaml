@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: host.docker.internal:8082/backend:aa3351b94f2b7af2d2d5bf5a74e5aa810e21dbd5
+          image: nexus.nexus.svc.cluster.local:8082/backend:aa3351b94f2b7af2d2d5bf5a74e5aa810e21dbd5
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
