@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: gswack/hotel-frontend:latest
+          image: gswack/frontend-repo:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
