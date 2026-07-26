@@ -3,31 +3,21 @@ kind: Application
 
 metadata:
   name: backend
-
   namespace: argocd
 
 spec:
-
   project: default
-
   source:
-
     repoURL: https://github.com/gswack/infra-repo
-
     targetRevision: main
-
     path: kubernetes/backend
-
-
   destination:
-
     server: https://kubernetes.default.svc
-
     namespace: hotel-backend
 
-
   syncPolicy:
-
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
