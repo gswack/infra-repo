@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/gswack/infra-repo
     targetRevision: main
-    path: kubernetes/namespaces
+    path: kubernetes/nexus
 
   destination:
     server: https://kubernetes.default.svc
