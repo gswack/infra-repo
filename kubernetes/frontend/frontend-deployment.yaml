@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: nexus.nexus.svc.cluster.local:8082/frontend:9ba9f377d2829b648b871b03371252bb662186cf
+          image: nexus.nexus.svc.cluster.local:8082/frontend:063277a87eec1400ee08221ea67a111e929c9af1
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
