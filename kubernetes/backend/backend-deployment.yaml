@@ -21,16 +21,23 @@ spec:
       containers:
         - name: backend
           # changing image to test image for testing purposes
-          image: 172.18.0.4:30082/backend:latest
+          image: 172.18.0.4:30082/backend:v1
+
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
               name: http
+
           envFrom:
             - configMapRef:
                 name: backend-config
             - secretRef:
                 name: backend-secret
+
+          env:
+          - name: MONGO_URL
+            value: mongodb://mongodb.hotel-backend.svc.cluster.local:27017/hotelapp
+
           readinessProbe:
             httpGet:
               path: /hotels
