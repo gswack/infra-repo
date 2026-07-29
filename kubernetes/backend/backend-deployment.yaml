@@ -21,7 +21,7 @@ spec:
       containers:
         - name: backend
           # changing image to test image for testing purposes
-          image: nexus.nexus.svc.cluster.local:8082/backend:latest
+          image: 172.18.0.4:30082/backend:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
