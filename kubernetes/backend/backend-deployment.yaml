@@ -34,10 +34,6 @@ spec:
             - secretRef:
                 name: backend-secret
 
-          env:
-          - name: MONGO_URL
-            value: mongodb://mongodb.hotel-backend.svc.cluster.local:27017/hotelapp
-
           readinessProbe:
             httpGet:
               path: /hotels

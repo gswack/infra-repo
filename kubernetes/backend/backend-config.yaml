@@ -9,4 +9,4 @@ metadata:
 data:
   PORT: "3000"
   NODE_ENV: production
-  MONGODB_URI: mongodb://mongodb.hotel-database.svc.cluster.local:27017/hotelapp
+  MONGO_URI: mongodb://mongodb.hotel-database.svc.cluster.local:27017/hotelapp
