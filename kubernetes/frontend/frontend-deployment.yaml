@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: 172.18.0.4:30082/frontend:v5
+          image: 172.18.0.4:30082/frontend:v6
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
