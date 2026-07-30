@@ -21,7 +21,7 @@ spec:
       containers:
         - name: backend
           # changing image to test image for testing purposes
-          image: 172.18.0.4:30082/backend:v4
+          image: 172.18.0.4:30082/backend:v3
 
           imagePullPolicy: IfNotPresent
           ports:
