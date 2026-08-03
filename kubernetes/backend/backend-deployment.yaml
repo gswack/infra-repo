@@ -21,7 +21,7 @@ spec:
       containers:
         - name: backend
           # changing image to test image for testing purposes
-          image: desktop-control-plane:30082/backend:v7
+          image: host.docker.internal:8082/backend:v8 
 
           imagePullPolicy: IfNotPresent
           ports:
