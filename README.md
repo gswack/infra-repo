@@ -176,6 +176,16 @@ The backend application is deployed using:
 
 Backend configuration:
 
+### Container Image Management
+
+Backend container images are referenced using immutable SHA-based tags.
+
+Example:
+
+```yaml
+image: host.docker.internal:8082/backend:f5c6a361dcaedbff19318653b497dfa098fb8cd8
+
+
 ```
 PORT=3000
 MONGO_URL=mongodb://mongodb.hotel-backend.svc.cluster.local:27017/hotelapp

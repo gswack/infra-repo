@@ -7,7 +7,7 @@ metadata:
     app: frontend
     tier: frontend
 spec:
-  replicas: 1
+  replicas: 5
   selector:
     matchLabels:
       app: frontend
@@ -20,11 +20,13 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: desktop-control-plane:30082/frontend:v7
+          image: host.docker.internal:8082/frontend:v6
+
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
               name: http
+              
           readinessProbe:
             httpGet:
               path: /
