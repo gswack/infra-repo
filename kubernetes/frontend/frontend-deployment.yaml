@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: host.docker.internal:8082/frontend:v6
+          image: host.docker.internal:8082/frontend:
 
           imagePullPolicy: IfNotPresent
           ports:
