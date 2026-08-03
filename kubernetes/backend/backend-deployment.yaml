@@ -21,7 +21,7 @@ spec:
       containers:
         - name: backend
           # changing image to test image for testing purposes
-          image: host.docker.internal:8082/backend:v8 
+          image: host.docker.internal:8082/backend::f5c6a361dcaedbff19318653b497dfa098fb8cd8
 
           imagePullPolicy: IfNotPresent
           ports:
