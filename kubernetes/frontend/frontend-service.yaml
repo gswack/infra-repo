@@ -3,16 +3,13 @@ kind: Service
 metadata:
   name: frontend
   namespace: hotel-frontend
-  labels:
-    app: frontend
-    tier: frontend
+
 spec:
-  type: NodePort
+  type: ClusterIP
+
   selector:
     app: frontend
-    tier: frontend
+
   ports:
-    - name: http
-      port: 80
+    - port: 80
       targetPort: 80
-      nodePort: 30080
