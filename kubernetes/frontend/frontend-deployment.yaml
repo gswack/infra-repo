@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: host.docker.internal:8082/frontend:49c6f95a40bb3a0d561180d67ede35604db2ae2c
+          image: host.docker.internal:8082/frontend:f3a8d6ac739d2415c2ac350212a92f2f94893ca4
 
           imagePullPolicy: IfNotPresent
           ports:
