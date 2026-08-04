@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cloudflared-config
+  namespace: hotel-frontend
+
+data:
+  config.yml: |
+    tunnel: 15c13f19-d3a9-486f-810e-bc9973c758c6
+    credentials-file: /etc/cloudflared/credentials.json
+
+    ingress:
+      - hostname: hotel.gswack.com
+        service: http://frontend.hotel-frontend.svc.cluster.local:80
+
+      - service: http_status:404
