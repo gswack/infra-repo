@@ -1,0 +1,13 @@
+server:
+  enabled: true
+
+  persistence:
+    enabled: true
+    size: 5Gi
+
+  dataStorage:
+    enabled: true
+    size: 5Gi
+
+ui:
+  enabled: true

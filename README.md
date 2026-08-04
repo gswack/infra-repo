@@ -511,6 +511,21 @@ Before submission:
 * [x] Grafana running
 * [x] Logs collected from Kubernetes workloads
 
+## OpenBao Secret Management
+OpenBao is deployed inside Kubernetes using Helm.
+
+Namespace:
+openbao
+
+Components:
+- OpenBao server
+- Persistent storage
+- Web UI
+
+Verification:
+kubectl get pods -n openbao
+kubectl get svc -n openbao
+
 ---
 
 # Author
