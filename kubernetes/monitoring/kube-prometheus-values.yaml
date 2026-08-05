@@ -1,0 +1,7 @@
+prometheus:
+  prometheusSpec:
+    additionalScrapeConfigs:
+      - job_name: windows
+        static_configs:
+          - targets:
+              - host.docker.internal:9182
