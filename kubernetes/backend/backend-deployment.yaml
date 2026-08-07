@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: host.docker.internal:8082/backend:8a5d93c84b3a312f594588766f4ad6f01123ea06
+          image: host.docker.internal:8082/backend:8c283fbc6c4938d17ac732e9ce344f802b1cb0a2
 
           imagePullPolicy: IfNotPresent
           ports:
