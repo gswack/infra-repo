@@ -6,18 +6,32 @@ metadata:
   labels:
     app: backend
     tier: backend
+
 spec:
   replicas: 5
   selector:
     matchLabels:
       app: backend
       tier: backend
+  
   template:
     metadata:
       labels:
         app: backend
         tier: backend
+
+      annotations:
+        openbao.hashicorp.com/agent-inject: "true"
+        openbao.hashicorp.com/role: "hotel-backend"
+        openbao.hashicorp.com/agent-inject-secret-mongo-uri: "secret/data/hotel/backend"
+        openbao.hashicorp.com/agent-inject-template-mongo-uri: |
+          {{- with secret "secret/data/hotel/backend" -}}
+          {{ .Data.data.MONGO_URI }}
+          {{- end }}
+
     spec:
+      serviceAccountName: backend
+
       containers:
         - name: backend
           image: host.docker.internal:8082/backend:8c283fbc6c4938d17ac732e9ce344f802b1cb0a2
@@ -39,12 +53,14 @@ spec:
               port: 3001
             initialDelaySeconds: 10
             periodSeconds: 10
+          
           livenessProbe:
             httpGet:
               path: /hotels
               port: 3001
             initialDelaySeconds: 30
             periodSeconds: 20
+          
           resources:
             requests:
               cpu: 100m
