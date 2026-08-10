@@ -21,10 +21,11 @@ spec:
         tier: backend
 
       annotations:
-        openbao.hashicorp.com/agent-inject: "true"
-        openbao.hashicorp.com/role: "hotel-backend"
-        openbao.hashicorp.com/agent-inject-secret-mongo-uri: "secret/data/hotel/backend"
-        openbao.hashicorp.com/agent-inject-template-mongo-uri: |
+        # Use 'agent.openbao.org' (or 'vault.hashicorp.com' depending on your injector chart)
+        agent.openbao.org/agent-inject: "true"
+        agent.openbao.org/role: "hotel-backend"
+        agent.openbao.org/agent-inject-secret-mongo-uri: "secret/data/hotel/backend"
+        agent.openbao.org/agent-inject-template-mongo-uri: |     
           {{- with secret "secret/data/hotel/backend" -}}
           {{ .Data.data.MONGO_URI }}
           {{- end }}
@@ -34,7 +35,7 @@ spec:
 
       containers:
         - name: backend
-          image: host.docker.internal:8082/backend:2fc95f55a110d7e700180259b4090175ab75acb7
+          image: host.docker.internal:8082/backend:ee81e55e7d7305b362bf5afb923e75a1924f5996
 
           imagePullPolicy: IfNotPresent
           ports:
