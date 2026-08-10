@@ -21,10 +21,11 @@ spec:
         tier: backend
 
       annotations:
-        openbao.hashicorp.com/agent-inject: "true"
-        openbao.hashicorp.com/role: "hotel-backend"
-        openbao.hashicorp.com/agent-inject-secret-mongo-uri: "secret/data/hotel/backend"
-        openbao.hashicorp.com/agent-inject-template-mongo-uri: |
+        # Use 'agent.openbao.org' (or 'vault.hashicorp.com' depending on your injector chart)
+        agent.openbao.org/agent-inject: "true"
+        agent.openbao.org/role: "hotel-backend"
+        agent.openbao.org/agent-inject-secret-mongo-uri: "secret/data/hotel/backend"
+        agent.openbao.org/agent-inject-template-mongo-uri: |     
           {{- with secret "secret/data/hotel/backend" -}}
           {{ .Data.data.MONGO_URI }}
           {{- end }}
