@@ -22,10 +22,10 @@ spec:
 
       annotations:
         # Use 'hashicorp'
-        openbao.hashicorp.com/agent-inject: "true"
-        openbao.hashicorp.com/role: "hotel-backend"
-        openbao.hashicorp.com/agent-inject-secret-mongo-uri: "secret/data/hotel/backend"
-        openbao.hashicorp.com/agent-inject-template-mongo-uri: |     
+        vault.hashicorp.com/agent-inject: "true"
+        vault.hashicorp.com/role: "hotel-backend"
+        vault.hashicorp.com/agent-inject-secret-mongo-uri: "secret/data/hotel/backend"
+        vault.hashicorp.com/agent-inject-template-mongo-uri: |     
           {{- with secret "secret/data/hotel/backend" -}}
           {{ .Data.data.MONGO_URI }}
           {{- end }}
