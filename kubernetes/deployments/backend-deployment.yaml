@@ -6,62 +6,42 @@ metadata:
   labels:
     app: backend
     tier: backend
-
 spec:
   replicas: 5
   selector:
     matchLabels:
       app: backend
       tier: backend
-  
   template:
     metadata:
       labels:
         app: backend
         tier: backend
-
-      annotations:
-        # Use 'hashicorp'
-        vault.hashicorp.com/agent-inject: "true"
-        vault.hashicorp.com/role: "hotel-backend"
-        vault.hashicorp.com/agent-inject-secret-mongo-uri: "secret/data/hotel/backend"
-        vault.hashicorp.com/agent-inject-template-mongo-uri: |     
-          {{- with secret "secret/data/hotel/backend" -}}
-          {{ .Data.data.MONGO_URI }}
-          {{- end }}
-
     spec:
-      serviceAccountName: backend
-
       containers:
         - name: backend
-          image: nexus.gswack.com/backend:b7f8fd667b2680f97b7cd1ed5480af22698516db
-
+          image: host.docker.internal:8082/backend:aa3351b94f2b7af2d2d5bf5a74e5aa810e21dbd5
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 3001
+            - containerPort: 3000
               name: http
-
           envFrom:
             - configMapRef:
                 name: backend-config
             - secretRef:
                 name: backend-secret
-
           readinessProbe:
             httpGet:
               path: /hotels
-              port: 3001
+              port: 3000
             initialDelaySeconds: 10
             periodSeconds: 10
-          
           livenessProbe:
             httpGet:
               path: /hotels
-              port: 3001
+              port: 3000
             initialDelaySeconds: 30
             periodSeconds: 20
-          
           resources:
             requests:
               cpu: 100m
@@ -69,6 +49,3 @@ spec:
             limits:
               cpu: 500m
               memory: 512Mi
-      
-      imagePullSecrets:
-        - name: regcred

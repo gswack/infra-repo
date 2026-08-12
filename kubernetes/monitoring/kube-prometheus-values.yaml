@@ -4,4 +4,4 @@ prometheus:
       - job_name: windows
         static_configs:
           - targets:
-              - host.docker.internal:9182
+              - nexus.gswack.com:9182

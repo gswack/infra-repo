@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: host.docker.internal:8082/frontend:edd77642741615c75f7e9be95b154f979a331dc0
+          image: nexus.gswack.com/frontend:264830df706cffc5792359962ae7493b720a09ac
 
           imagePullPolicy: IfNotPresent
           ports:
