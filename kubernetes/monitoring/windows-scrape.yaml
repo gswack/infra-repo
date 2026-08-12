@@ -1,0 +1,4 @@
+- job_name: windows
+  static_configs:
+    - targets:
+        - nexus.gswack.com:9182

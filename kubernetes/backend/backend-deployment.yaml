@@ -35,7 +35,7 @@ spec:
 
       containers:
         - name: backend
-          image: host.docker.internal:8082/backend:b7f8fd667b2680f97b7cd1ed5480af22698516db
+          image: nexus.gswack.com/backend:b7f8fd667b2680f97b7cd1ed5480af22698516db
 
           imagePullPolicy: IfNotPresent
           ports:
