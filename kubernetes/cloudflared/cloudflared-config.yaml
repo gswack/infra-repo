@@ -13,4 +13,7 @@ data:
       - hostname: hotel.gswack.com
         service: http://frontend.hotel-frontend.svc.cluster.local:80
 
+      - hostname: nexus.gswack.com
+        service: http://nexus.nexus.svc.cluster.local:8082
+
       - service: http_status:404
