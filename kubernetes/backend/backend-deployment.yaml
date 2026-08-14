@@ -35,7 +35,7 @@ spec:
 
       containers:
         - name: backend
-          image: nexus.gswack.com/backend:e05dc4dcc3b84b722914910ba3e857f12f1e985f
+          image: nexus.gswack.com/backend:a6213c3eb986ca4cf98a44d19467201fa3536006
 
           imagePullPolicy: IfNotPresent
           ports:
