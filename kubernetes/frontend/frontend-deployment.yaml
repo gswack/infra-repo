@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: nexus.gswack.com/frontend:a1c3a44b0d4543ec45bfa60df33ebc7d47676499
+          image: nexus.gswack.com/frontend:v69
 
           imagePullPolicy: IfNotPresent
           ports:
