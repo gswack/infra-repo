@@ -1,6 +1,6 @@
 # Hotel Booking Platform - Infrastructure Repository
 
-This repository contains the Kubernetes infrastructure and GitOps deployment configuration for the Hotel Booking Platform.
+This repository contains the Kubernetes infrastructure and GitOps deployment configuration for the Hotel Booking platform.
 
 The infrastructure is responsible for deploying, managing, and monitoring the complete application stack, including:
 
@@ -15,9 +15,7 @@ All application deployments are managed using Kubernetes and synchronized automa
 
 ---
 
-# Architecture Overview
-
-The deployment architecture:
+## Architecture
 
 ```
 Developer
@@ -47,7 +45,7 @@ Frontend Pods      Backend Pods
                     MongoDB
 ```
 
-Monitoring:
+## Monitoring:
 
 ```
 Kubernetes Cluster
@@ -67,7 +65,7 @@ Kubernetes Cluster
 
 ---
 
-# Technology Stack
+## Technology Stack
 
 | Component          | Technology                  |
 | ------------------ | --------------------------- |
@@ -83,7 +81,7 @@ Kubernetes Cluster
 
 ---
 
-# Repository Structure
+## Repository Structure
 
 ```
 infra-repo/
@@ -127,7 +125,7 @@ infra-repo/
 
 ---
 
-# Kubernetes Namespaces
+## Kubernetes Namespaces
 
 The cluster is organized into dedicated namespaces:
 
@@ -183,14 +181,10 @@ Backend container images are referenced using immutable SHA-based tags.
 Example:
 
 ```yaml
-image: host.docker.internal:8082/backend:f5c6a361dcaedbff19318653b497dfa098fb8cd8
-
-
-```
+image: host.docker.internal:8082/backend:f5c6a361dcaedbff19318653b497dfa098fb8cd8	
 PORT=3000
 MONGO_URL=mongodb://mongodb.hotel-backend.svc.cluster.local:27017/hotelapp
 ```
-
 ---
 
 ## MongoDB Deployment
@@ -212,8 +206,8 @@ reservations
 ```
 
 ---
-
-# Docker Registry - Nexus
+## Docker
+### Docker Registry - Nexus
 
 Nexus is used as the private Docker registry.
 
@@ -240,9 +234,9 @@ Example image:
 
 ---
 
-# CI/CD Pipeline
+## CI/CD
 
-Each application repository contains a GitHub Actions workflow.
+Each application repository (backend and frontend) contains a **GitHub Actions** workflow.
 
 Pipeline flow:
 
@@ -267,9 +261,9 @@ ArgoCD Sync
 
 ---
 
-# ArgoCD GitOps Deployment
+## ArgoCD GitOps Deployment
 
-ArgoCD continuously monitors Kubernetes manifests stored in this repository.
+**ArgoCD** continuously monitors Kubernetes manifests stored in this repository.
 
 Deployment flow:
 
@@ -294,11 +288,11 @@ New Pods Running
 
 ---
 
-# ArgoCD Applications
+### ArgoCD Applications
 
 Configured applications:
 
-## Frontend Application
+### Frontend Application
 
 Source:
 
@@ -314,7 +308,7 @@ Namespace: hotel-frontend
 
 ---
 
-## Backend Application
+### Backend Application
 
 Source:
 
@@ -330,7 +324,7 @@ Namespace: hotel-backend
 
 ---
 
-# Secrets Management
+## Secrets Management
 
 Sensitive information is stored using Kubernetes Secrets.
 
@@ -349,7 +343,7 @@ Secrets are not stored directly in application repositories.
 
 ---
 
-# Persistent Storage
+## Persistent Storage
 
 Persistent storage is configured for:
 
@@ -373,7 +367,7 @@ kubectl get pvc -A
 
 ---
 
-# Monitoring Platform
+## Monitoring Platform
 
 The monitoring stack is deployed inside:
 
@@ -390,7 +384,7 @@ Components:
 
 ---
 
-## Prometheus
+### Prometheus
 
 Collects Kubernetes metrics:
 
@@ -401,7 +395,7 @@ Collects Kubernetes metrics:
 
 ---
 
-## Loki
+### Loki
 
 Stores application logs.
 
@@ -415,7 +409,7 @@ Collected logs:
 
 ---
 
-## Grafana
+### Grafana
 
 Provides dashboards for:
 
@@ -431,9 +425,9 @@ Example Loki query:
 
 ---
 
-# Useful Kubernetes Commands
+## Useful Kubernetes Commands
 
-## Check all namespaces
+### Check all namespaces
 
 ```bash
 kubectl get namespaces
@@ -441,7 +435,7 @@ kubectl get namespaces
 
 ---
 
-## Check pods
+### Check pods
 
 ```bash
 kubectl get pods -A
@@ -449,7 +443,7 @@ kubectl get pods -A
 
 ---
 
-## Check deployments
+### Check deployments
 
 ```bash
 kubectl get deployments -A
@@ -457,7 +451,7 @@ kubectl get deployments -A
 
 ---
 
-## ArgoCD status
+### ArgoCD status
 
 ```bash
 kubectl get applications -n argocd
@@ -465,7 +459,7 @@ kubectl get applications -n argocd
 
 ---
 
-## View application logs
+### View application logs
 
 Backend:
 
@@ -528,6 +522,6 @@ kubectl get svc -n openbao
 
 ---
 
-# Author
+## Author
 
 Gabriel Swack
